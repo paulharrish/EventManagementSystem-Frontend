@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Management System</title>
     <link rel="stylesheet" type="text/css" href="/CSS/event.css" />
+    <link rel="stylesheet" href="/JS/event.js" />
   </head>
   <body>
-    <div class="container outer">
+    <script src="/JS/event.js"></script>
+    <div class="container outer" id="outerContainer">
       <div class="nav">
         <div class="textDiv">
-          <h2 class="eventmanagementsystem">EventHub</h2>
+          <h2 class="eventhub">EventHub</h2>
         </div>
 
         <div class="centerDiv">
@@ -24,30 +26,9 @@
           <button class="signupButton">Signup</button>
         </div>
       </div>
-      <div class="contentArea">
-        <h1 class="listofallevents">List of All Upcoming Events</h1>        
-        <table border="1">
-          <thead>
-              <tr>
-                  <th>Title</th>
-                  <th>Description</th>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>Location</th>
-                  <th>Participate</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr th:each="event : ${events}">
-                  <td th:text="${event.title}"></td>
-                  <td th:text="${event.description}"></td>
-                  <td th:text="${event.date}"></td>
-                  <td th:text="${event.time}"></td>
-                  <td th:text="${event.location}"></td>
-                  
-              </tr>
-          </tbody>
-      </table>
-  
+      <div class="contentArea" id="contentArea">
+        <h1 class="listofallevents">List of All Upcoming Events</h1>
+      </div>
+    </div>
   </body>
 </html>
