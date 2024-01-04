@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Management System</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/event.css" />
+  </head>
+  <body>
+    <div class="container outer">
+      <div class="nav">
+        <div class="textDiv">
+          <h2 class="eventmanagementsystem">EventHub</h2>
+        </div>
+
+        <div class="centerDiv">
+          <span class="home">Home</span>
+          <span class="create">Create</span>
+          <span class="events">Events</span>
+          <span class="categories">Categories</span>
+        </div>
+        <div class="buttonDiv">
+          <button class="loginButton">Login</button>
+          <button class="signupButton">Signup</button>
+        </div>
+      </div>
+      <div class="contentArea">
+        <h1 class="listofallevents">List of All Upcoming Events</h1>
+        <table border="1">
+          <thead>
+              <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Location</th>
+                  <th>Participate</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="event : ${events}">
+                  <td th:text="${event.title}"></td>
+                  <td th:text="${event.description}"></td>
+                  <td th:text="${event.date}"></td>
+                  <td th:text="${event.time}"></td>
+                  <td th:text="${event.location}"></td>
+                  
+              </tr>
+          </tbody>
+      </table>
+  
+  </body>
+</html>
