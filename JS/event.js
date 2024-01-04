@@ -43,8 +43,11 @@ function display(data) {
 
     const participateButton = document.createElement("button");
     participateButton.textContent = "Participate";
-    participateButton.classList.add("participate-btn")
+    participateButton.classList.add("participate-btn");
     eventInfo.appendChild(participateButton);
-
   });
 }
+
+document.getElementById("loginButton").addEventListener("click", function () {
+  window.location.href = "http://127.0.0.1:5501/HTML/login.html";
+});
