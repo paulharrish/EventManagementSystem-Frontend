@@ -23,6 +23,7 @@
   background-color: #778899;
   display: flex;
   align-items: center;
+  filter: blur(0);
 }
 
 .textDiv {

@@ -3,7 +3,6 @@ xhr.onreadystatechange = function () {
   if (xhr.readyState == 4 && xhr.status == 200) {
     const eventData = JSON.parse(xhr.responseText);
     display(eventData);
-    console.log(eventData);
   }
 };
 xhr.open("GET", "http://localhost:8080/events/all", true);
@@ -50,4 +49,7 @@ function display(data) {
 
 document.getElementById("loginButton").addEventListener("click", function () {
   window.location.href = "http://127.0.0.1:5501/HTML/login.html";
+});
+document.getElementById("signupButton").addEventListener("click", function () {
+  window.location.href = "http://127.0.0.1:5501/HTML/signup.html";
 });

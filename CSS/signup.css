@@ -82,9 +82,9 @@ span {
   gap: 30px;
 }
 
-.login-box {
+.signup-box {
   width: 350px;
-  height: 350px;
+  height: 480px;
   background-color: white;
   border-radius: 5%;
   z-index: 1;
@@ -94,9 +94,10 @@ span {
   display: flex;
   flex-direction: column;
   margin-top: -75px;
+  /* background-color: red; */
 }
 
-.login-heading {
+.signup-heading {
   color: #333;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 20px;
@@ -104,34 +105,25 @@ span {
   font-size: x-large;
 }
 
-.login-form {
+.signup-form {
   display: flex;
-  height: 250px;
+  height: 380px;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  /* background-color: blue; */
+  align-items: center;
 }
 
 .field-div {
   width: 335px;
   height: 80px;
+  margin: 2px 0px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding-left: 15px;
-}
-label {
-  margin-top: 10px;
-  color: #555;
-  align-self: flex-start;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: 0.1px;
+  /* background-color: black; */
 }
 
 input {
-  width: 80%;
+  width: 85%;
   outline: none;
   border: none;
   padding: 12px;
@@ -144,7 +136,7 @@ input::placeholder {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.login-button {
+.signup-button {
   width: 70%;
   background-color: #4caf50;
   color: #fff;
@@ -161,18 +153,12 @@ button:hover {
   background-color: #45a049;
 }
 
-.create-acnt {
+.login-back {
   text-decoration: none;
-  color: black;
+  color: rgb(14, 176, 14);
   opacity: 0.7;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.65rem;
-}
-
-.field-div span {
-  color: red;
-  align-self: flex-start;
-  font-weight: lighter;
-  font-size: 0.7rem;
+  margin-top: 10px;
   visibility: hidden;
 }

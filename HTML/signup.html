@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Management System</title>
-    <link rel="stylesheet" href="/CSS/login.css" />
+    <link rel="stylesheet" href="/CSS/signup.css" />
   </head>
   <body>
-    <script defer src="/JS/login.js"></script>
+    <script defer src="/JS/signup.js"></script>
     <div class="container outer" id="outerContainer">
       <div class="nav">
         <div class="textDiv">
@@ -23,9 +23,39 @@
         <div class="buttonDiv"></div>
       </div>
       <div class="content-area" id="contentArea">
-        <div class="login-box">
-          <h2 class="login-heading">Login</h2>
-          <form class="login-form" id="login-form">
+        <div class="signup-box">
+          <h2 class="signup-heading">Create an Account</h2>
+          <form class="signup-form" id="signup-form">
+            <div class="field-div">
+              <input
+                type="text"
+                class="firstname"
+                id="firstname"
+                name="firstname"
+                required
+                placeholder="Enter your First name"
+              />
+            </div>
+            <div class="field-div">
+              <input
+                type="text"
+                class="lastname"
+                id="lastname"
+                name="lastname"
+                required
+                placeholder="Enter your Last name"
+              />
+            </div>
+            <div class="field-div">
+              <input
+                type="email"
+                class="mailid"
+                id="mailid"
+                name="mailid"
+                required
+                placeholder="Enter your E-mail id"
+              />
+            </div>
             <div class="field-div">
               <input
                 type="text"
@@ -35,9 +65,7 @@
                 required
                 placeholder="Enter your username"
               />
-              <span class="incorrect-username">Your username is incorrect</span>
             </div>
-
             <div class="field-div">
               <input
                 type="password"
@@ -46,20 +74,18 @@
                 required
                 placeholder="Enter your password"
               />
-              <span class="incorrect-password">Your password is incorrect</span>
             </div>
-
             <button
               type="submit"
-              class="login-button"
+              class="signup-button"
               login-button
-              id="loginButton"
+              id="signupButton"
             >
-              Login
+              Create Account
             </button>
           </form>
-          <a href="http://127.0.0.1:5501/HTML/signup.html" class="create-acnt"
-            >Didn't have one? Create an account</a
+          <a href="http://127.0.0.1:5501/HTML/login.html" class="login-back"
+            >Account created Succesfully! Login</a
           >
         </div>
       </div>
