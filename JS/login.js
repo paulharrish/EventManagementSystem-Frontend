@@ -17,13 +17,24 @@ document
 
     xhr.onload = function () {
       if (xhr.status == 200) {
-        console.log(JSON.parse(xhr.responseText));
+        var loginStatus = JSON.parse(xhr.responseText);
+        Object.values(loginStatus).forEach((value) => {
+          if (value == "Login success") {
+            window.location.href = "http://127.0.0.1:5501/HTML/userpage.html";
+          } else if (value == "password not match") {
+            document.getElementById("incorrectPassword").style.visibility =
+              "visible";
+            document.getElementById("password").value = "";
+          } else if (value == "User not exists") {
+            document.getElementById("incorrectUsername").style.visibility =
+              "visible";
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+          }
+        });
       } else {
         console.error("Error:", xhr.statusText);
       }
     };
     xhr.send(JSON.stringify(userLoginData));
-
-    document.getElementById("username").value = "";
-    document.getElementById("password").value = "";
   });

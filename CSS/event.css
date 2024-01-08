@@ -154,7 +154,7 @@ span {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
   color: #fff;
   font-size: 14px;
-  padding: 12px 25px;
+  padding: 10px 25px;
   width: 140px;
   align-self: last baseline;
   cursor: pointer;
@@ -163,4 +163,9 @@ span {
 
 .participate-btn:hover {
   background-color: #2a265f;
+}
+
+.event-info .event-host {
+  font-weight: bold;
+  width: 280px;
 }

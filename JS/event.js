@@ -1,4 +1,8 @@
 const xhr = new XMLHttpRequest();
+const username = "user";
+const password = "28a50750-eff8-4a1a-b9da-c08335b35ea8";
+const credentials = `${username}:${password}`;
+const base64Credentials = btoa(credentials);
 xhr.onreadystatechange = function () {
   if (xhr.readyState == 4 && xhr.status == 200) {
     const eventData = JSON.parse(xhr.responseText);
@@ -6,6 +10,7 @@ xhr.onreadystatechange = function () {
   }
 };
 xhr.open("GET", "http://localhost:8080/events/all", true);
+xhr.setRequestHeader("Authorization", `Basic ${base64Credentials}`);
 xhr.send();
 
 function display(data) {
@@ -40,10 +45,21 @@ function display(data) {
       }
     });
 
+    const eventHost = document.createElement("span");
+    eventHost.textContent =
+      "Hosted by:" + event.user.firstName + " " + event.user.lastName;
+    eventHost.classList.add("event-host");
+    eventInfo.appendChild(eventHost);
+
     const participateButton = document.createElement("button");
     participateButton.textContent = "Participate";
     participateButton.classList.add("participate-btn");
+    participateButton.setAttribute("id", "participateButton");
     eventInfo.appendChild(participateButton);
+
+    participateButton.addEventListener("click", function () {
+      window.location.href = "http://127.0.0.1:5501/HTML/login.html";
+    });
   });
 }
 
