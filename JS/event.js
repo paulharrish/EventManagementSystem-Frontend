@@ -1,6 +1,6 @@
 const xhr = new XMLHttpRequest();
-const username = "user";
-const password = "28a50750-eff8-4a1a-b9da-c08335b35ea8";
+const username = "admin";
+const password = "admin";
 const credentials = `${username}:${password}`;
 const base64Credentials = btoa(credentials);
 xhr.onreadystatechange = function () {
