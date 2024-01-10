@@ -18,7 +18,7 @@ document
 
     var xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "http://localhost:8080/users/register", true);
+    xhr.open("POST", "http://localhost:8080/auth/register", true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onload = function () {

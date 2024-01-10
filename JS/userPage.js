@@ -8,6 +8,19 @@ xhr.onreadystatechange = function () {
 xhr.open("GET", "http://localhost:8080/events/all", true);
 xhr.send();
 
+const xhttp = new XMLHttpRequest();
+var accessToken = document.cookie;
+xhttp.onreadystatechange = function () {
+  if (xhttp.readyState == 4 && xhttp.status == 200) {
+    var userDetails = JSON.parse(xhttp.responseText);
+    var userName = userDetails.firstName;
+    updateNavbar(userName);
+  }
+};
+xhttp.open("GET", "http://localhost:8080/users/home", true);
+xhttp.setRequestHeader("Authorization", "Bearer " + accessToken);
+xhttp.send();
+
 function display(data) {
   const exculdeColumns = ["eventId", "user", "createdAt", "updatedAt"];
   const contentArea = document.getElementById("contentArea");
@@ -51,16 +64,21 @@ function display(data) {
     participateButton.classList.add("participate-btn");
     participateButton.setAttribute("id", "participateButton");
     eventInfo.appendChild(participateButton);
-
-    participateButton.addEventListener("click", function () {
-      window.location.href = "http://127.0.0.1:5501/HTML/login.html";
-    });
   });
 }
 
-document.getElementById("loginButton").addEventListener("click", function () {
-  window.location.href = "http://127.0.0.1:5501/HTML/login.html";
-});
-document.getElementById("signupButton").addEventListener("click", function () {
-  window.location.href = "http://127.0.0.1:5501/HTML/signup.html";
-});
+function updateNavbar(name) {
+  const infoArea = document.getElementById("infoDiv");
+  const userGreeting = document.createElement("span");
+  userGreeting.textContent = "Hii " + name + "!";
+  userGreeting.classList.add("user-greeting");
+  infoArea.appendChild(userGreeting);
+}
+
+function dropdownExtend() {
+  document.getElementById("myDropdown").style.display = "block";
+}
+
+function dropdownClose() {
+  document.getElementById("myDropdown").style.display = "none";
+}
