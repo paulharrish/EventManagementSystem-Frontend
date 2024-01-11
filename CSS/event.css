@@ -63,6 +63,7 @@ span {
   font-family: Arial, Helvetica, sans-serif;
   font-size: small;
   font-weight: bold;
+  cursor: pointer;
 }
 .buttonDiv button {
   height: 40px;
@@ -171,4 +172,46 @@ span {
 .event-info .event-host {
   font-weight: bold;
   width: 280px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #778899;
+  color: white;
+  padding: 10px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 12px;
+}
+
+.dropdown-content a {
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #778899;
+  border-radius: 12px;
 }

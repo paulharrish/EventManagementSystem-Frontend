@@ -94,7 +94,6 @@ span {
   display: flex;
   flex-direction: column;
   margin-top: -75px;
-  /* background-color: red; */
 }
 
 .signup-heading {
@@ -109,7 +108,6 @@ span {
   display: flex;
   height: 380px;
   flex-direction: column;
-  /* background-color: blue; */
   align-items: center;
 }
 
@@ -119,7 +117,6 @@ span {
   margin: 2px 0px;
   display: flex;
   flex-direction: column;
-  /* background-color: black; */
 }
 
 input {

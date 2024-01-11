@@ -58,6 +58,58 @@ function display(data) {
   });
 }
 
+function dropdownExtend() {
+  document.getElementById("myDropdown").style.display = "block";
+}
+
+function dropdownClose() {
+  document.getElementById("myDropdown").style.display = "none";
+}
+
+function getEventByCategory(category) {
+  document.getElementById("myDropdown").style.display = "none";
+  const contentArea = document.getElementById("contentArea");
+  contentArea.innerHTML = "";
+  const listofallevents = document.createElement("h1");
+  listofallevents.textContent = "List of all Upcoming " + category + " Events";
+  listofallevents.classList.add("listofallevents");
+  contentArea.appendChild(listofallevents);
+  const eventRequest = new XMLHttpRequest();
+
+  var url = "http://localhost:8080/events/" + encodeURIComponent(category);
+  eventRequest.open("GET", url);
+
+  eventRequest.onreadystatechange = function () {
+    if (eventRequest.readyState == 4 && eventRequest.status == 200) {
+      const eventDataByCategory = JSON.parse(eventRequest.responseText);
+      console.log(eventDataByCategory);
+      display(eventDataByCategory);
+    }
+  };
+
+  eventRequest.send();
+}
+
+function getAllEvents() {
+  const contentArea = document.getElementById("contentArea");
+  contentArea.innerHTML = "";
+  const listofallevents = document.createElement("h1");
+  listofallevents.textContent = "List of all Upcoming Events";
+  listofallevents.classList.add("listofallevents");
+  contentArea.appendChild(listofallevents);
+
+  document.getElementById("myDropdown").style.display = "none";
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      const eventData = JSON.parse(xhr.responseText);
+      display(eventData);
+    }
+  };
+  xhr.open("GET", "http://localhost:8080/events/all", true);
+  xhr.send();
+}
+
 document.getElementById("loginButton").addEventListener("click", function () {
   window.location.href = "http://127.0.0.1:5501/HTML/login.html";
 });

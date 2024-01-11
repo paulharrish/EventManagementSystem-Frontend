@@ -18,7 +18,26 @@
           <span class="home">Home</span>
           <span class="create">Create</span>
           <span class="events">Events</span>
-          <span class="categories">Categories</span>
+          <div class="dropdown">
+            <button class="dropbtn" onclick="dropdownExtend()">
+              Categories
+            </button>
+            <div class="dropdown-content" id="myDropdown">
+              <a href="#" onclick="getEventByCategory('Technical')"
+                >Technical</a
+              >
+              <a href="#" onclick="getEventByCategory('Non Technical')"
+                >Non-Technical</a
+              >
+              <a href="#" onclick="getEventByCategory('Public')">Public</a>
+              <a href="#" onclick="getEventByCategory('Cultural')">Cultural</a>
+              <a href="#" onclick="getEventByCategory('Concert')">Concert</a>
+              <a href="#" onclick="getEventByCategory('Workshop')">Workshop</a>
+              <a href="#" onclick="getEventByCategory('Private')">Private</a>
+              <a href="#" onclick="getEventByCategory('Bootcamp')">Bootcamp</a>
+              <a href="#" onclick="getAllEvents()">All</a>
+            </div>
+          </div>
         </div>
         <div class="buttonDiv">
           <button class="loginButton" id="loginButton">Login</button>

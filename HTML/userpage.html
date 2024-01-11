@@ -16,6 +16,36 @@
   <body>
     <script defer src="/JS/userPage.js"></script>
     <div class="container outer" id="outerContainer">
+      <div class="sidebar" id="sidebar">
+        <div class="profile-info" id="profileInfo">
+          <div class="profile-pic-div" id="profilePicDiv">
+            <img
+              src="/assets/8380015.jpg"
+              id="profileImg"
+              class="profile-img"
+              alt=""
+            />
+          </div>
+          <div class="profile-name-div" id="profileNameDiv"></div>
+        </div>
+        <div class="sidebar-bottomDiv">
+          <div class="sidebar-option-div">
+            <span class="sidebar-option">My Events</span>
+          </div>
+          <div class="sidebar-option-div">
+            <span class="sidebar-option">Create An Event</span>
+          </div>
+          <div class="sidebar-option-div">
+            <span class="sidebar-option">Option3</span>
+          </div>
+          <div class="sidebar-option-div">
+            <span class="sidebar-option">Option4</span>
+          </div>
+          <div class="sidebar-option-div" id="logoutField">
+            <span class="sidebar-option">Logout</span>
+          </div>
+        </div>
+      </div>
       <div class="nav" id="nav">
         <div class="textDiv">
           <h2 class="eventhub">EventHub</h2>
@@ -26,27 +56,28 @@
           <span class="create">Create</span>
           <span class="events">Events</span>
           <div class="dropdown">
-            <button
-              class="dropbtn"
-              onclick="dropdownExtend()"
-              onblur="dropdownClose()"
-            >
+            <button class="dropbtn" onclick="dropdownExtend()">
               Categories
             </button>
             <div class="dropdown-content" id="myDropdown">
-              <a href="#" onclick="filterEventsByCategory()">Technical</a>
-              <a href="#" onclick="filterEvents('category2')">Non-Technical</a>
-              <a href="#" onclick="filterEvents('category2')">public</a>
-              <a href="#" onclick="filterEvents('category3')">Cultural</a>
-              <a href="#" onclick="filterEvents('category3')">Concert</a>
-              <a href="#" onclick="filterEvents('category3')">Workshop</a>
-              <a href="#" onclick="filterEvents('category3')">private</a>
-              <a href="#" onclick="filterEvents('category3')">Bootcamp</a>
+              <a href="#" onclick="getEventByCategory('Technical')"
+                >Technical</a
+              >
+              <a href="#" onclick="getEventByCategory('Non Technical')"
+                >Non-Technical</a
+              >
+              <a href="#" onclick="getEventByCategory('Public')">Public</a>
+              <a href="#" onclick="getEventByCategory('Cultural')">Cultural</a>
+              <a href="#" onclick="getEventByCategory('Concert')">Concert</a>
+              <a href="#" onclick="getEventByCategory('Workshop')">Workshop</a>
+              <a href="#" onclick="getEventByCategory('Private')">Private</a>
+              <a href="#" onclick="getEventByCategory('Bootcamp')">Bootcamp</a>
+              <a href="#" onclick="getAllEvents()">All</a>
             </div>
           </div>
         </div>
         <div class="infoDiv" id="infoDiv"></div>
-        <i class="fa-regular fa-user profile-icon"></i>
+        <i class="fa-regular fa-user profile-icon" id="profileIcon"></i>
       </div>
       <div class="contentArea" id="contentArea">
         <h1 class="listofallevents">List of All Upcoming Events</h1>

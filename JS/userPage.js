@@ -9,12 +9,13 @@ xhr.open("GET", "http://localhost:8080/events/all", true);
 xhr.send();
 
 const xhttp = new XMLHttpRequest();
-var accessToken = document.cookie;
+var accessToken = getCookie("jwt");
 xhttp.onreadystatechange = function () {
   if (xhttp.readyState == 4 && xhttp.status == 200) {
     var userDetails = JSON.parse(xhttp.responseText);
     var userName = userDetails.firstName;
     updateNavbar(userName);
+    displayDetailsOnSidebar(userDetails);
   }
 };
 xhttp.open("GET", "http://localhost:8080/users/home", true);
@@ -81,4 +82,96 @@ function dropdownExtend() {
 
 function dropdownClose() {
   document.getElementById("myDropdown").style.display = "none";
+}
+
+function getEventByCategory(category) {
+  document.getElementById("myDropdown").style.display = "none";
+  const contentArea = document.getElementById("contentArea");
+  contentArea.innerHTML = "";
+  const listofallevents = document.createElement("h1");
+  listofallevents.textContent = "List of all Upcoming " + category + " Events";
+  listofallevents.classList.add("listofallevents");
+  contentArea.appendChild(listofallevents);
+  const eventRequest = new XMLHttpRequest();
+
+  var url = "http://localhost:8080/events/" + encodeURIComponent(category);
+  eventRequest.open("GET", url);
+
+  eventRequest.onreadystatechange = function () {
+    if (eventRequest.readyState == 4 && eventRequest.status == 200) {
+      const eventDataByCategory = JSON.parse(eventRequest.responseText);
+      console.log(eventDataByCategory);
+      display(eventDataByCategory);
+    }
+  };
+
+  eventRequest.send();
+}
+
+function getAllEvents() {
+  const contentArea = document.getElementById("contentArea");
+  contentArea.innerHTML = "";
+  const listofallevents = document.createElement("h1");
+  listofallevents.textContent = "List of all Upcoming Events";
+  listofallevents.classList.add("listofallevents");
+  contentArea.appendChild(listofallevents);
+
+  document.getElementById("myDropdown").style.display = "none";
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      const eventData = JSON.parse(xhr.responseText);
+      display(eventData);
+    }
+  };
+  xhr.open("GET", "http://localhost:8080/events/all", true);
+  xhr.send();
+}
+
+var sidebar = document.getElementById("sidebar");
+
+document.getElementById("profileIcon").addEventListener("click", function () {
+  if (sidebar.classList == "sidebar") {
+    sidebar.classList.add("sidebar-collapsed");
+  } else {
+    sidebar.classList.add("sidebar");
+    sidebar.classList.remove("sidebar-collapsed");
+  }
+});
+
+function displayDetailsOnSidebar(userDetails) {
+  var name = document.createElement("span");
+  name.textContent = userDetails.firstName + " " + userDetails.lastName;
+  name.classList.add("sidebar-name");
+  var email = document.createElement("span");
+  email.textContent = userDetails.email;
+  email.classList.add("sidebar-email");
+
+  var profileDetails = document.getElementById("profileNameDiv");
+  profileDetails.appendChild(name);
+  profileDetails.appendChild(email);
+}
+
+function logout() {
+  document.cookie = "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; Secure";
+}
+
+document.getElementById("logoutField").addEventListener("click", function () {
+  expireCookie("jwt");
+  window.location.href = "http://127.0.0.1:5501/HTML/event.html";
+});
+
+function getCookie(name) {
+  const cookies = document.cookie.split(";");
+
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].trim();
+    if (cookie.startsWith(name + "=")) {
+      return cookie.substring(name.length + 1);
+    }
+  }
+}
+
+function expireCookie(name) {
+  document.cookie = name + "= xyz; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 }

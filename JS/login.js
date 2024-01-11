@@ -18,18 +18,20 @@ document
     xhr.onload = function () {
       if (xhr.status == 200) {
         var loginResponse = JSON.parse(xhr.responseText);
-        console.log(loginResponse);
-        var jwtToken = loginResponse.jwt;
-        setCookie(jwtToken);
-        window.location.href = "http://127.0.0.1:5501/HTML/userpage.html";
+        if (loginResponse.user !== null) {
+          var jwtToken = loginResponse.jwt;
+          document.cookie = "jwt=" + jwtToken;
+          window.location.href = "http://127.0.0.1:5501/HTML/userpage.html";
+        } else {
+          document.getElementById("incorrectPassword").style.visibility =
+            "visible";
+          document.getElementById("username").value = "";
+          document.getElementById("password").value = "";
+        }
       } else {
         console.error("Error:", xhr.statusText);
       }
     };
 
     xhr.send(JSON.stringify(userLoginData));
-
-    function setCookie(cvalue) {
-      document.cookie = cvalue + ";" + ";path=/";
-    }
   });

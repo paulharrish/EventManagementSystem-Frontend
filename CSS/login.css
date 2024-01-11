@@ -169,10 +169,12 @@ button:hover {
   font-size: 0.65rem;
 }
 
-.field-div span {
+.incorrect-password {
   color: red;
+  margin-top: 10px;
+  margin-left: 110px;
   align-self: flex-start;
-  font-weight: lighter;
+  font-weight: bold;
   font-size: 0.7rem;
   visibility: hidden;
 }
