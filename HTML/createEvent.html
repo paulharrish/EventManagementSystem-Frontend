@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/CSS/createEvent.css" />
+  </head>
+  <body>
+    <script defer src="/JS/createEvent.js"></script>
+    <div class="container">
+      <div class="header">
+        <h3 class="new-event">New Event</h3>
+      </div>
+      <div class="content-area">
+        <span class="new-event-heading">Create a new Event</span>
+        <span class="sub-heading">
+          An event registration should contains all details including location,
+          category,date and time.</span
+        >
+        <span class="mandatory">All fields marked with * are Mandatory</span>
+        <form action="userpage.html" class="event-creation-form">
+          <div class="event-name-div">
+            <div class="event-category">
+              <span class="category">Category*</span>
+              <select name="Select a Category" id="eventCategory">
+                <option value="Technical">Technical</option>
+                <option value="Non Technical">Non Technical</option>
+                <option value="Cultural">Cultural</option>
+                <option value="Public">Public</option>
+                <option value="Private">Private</option>
+                <option value="Concert">Concert</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Bootcamp">Bootcamp</option>
+              </select>
+            </div>
+            <div class="event-name-inner-div">
+              <span class="event-name">Event Name*</span>
+              <input
+                type="text"
+                id="eventName"
+                required
+                placeholder="Enter the event Title"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <span class="catchy-names"
+            >Tip : Catchy Event Names are easily memorable.</span
+          >
+          <span class="description">Description (Optional)</span>
+          <input
+            type="text"
+            id="eventDescription"
+            class="event-description"
+            autocomplete="off"
+          />
+          <span class="location">Location*</span>
+          <input
+            type="text"
+            id="eventLocation"
+            class="event-location"
+            required
+            autocomplete="off"
+            placeholder="Enter the Event Location"
+          />
+          <div class="date-time-div">
+            <div class="date-div">
+              <span>Event Date* (Eg. 25th January)</span>
+              <input
+                type="text"
+                id="eventDate"
+                class="event-date-box"
+                required
+                autocomplete="off"
+              />
+            </div>
+            <div class="time-div">
+              <span>Event Timing* (Eg.12pm)</span>
+              <input
+                type="text"
+                id="eventTime"
+                class="event-time-box"
+                required
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="btn-div">
+            <button
+              type="submit"
+              class="create-event-btn"
+              id="createEventButton"
+            >
+              Create Event
+            </button>
+            <button class="cancel-event-btn" id="cancelEventButton">
+              Cancel Event
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

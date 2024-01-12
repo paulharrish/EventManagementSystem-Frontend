@@ -9,7 +9,13 @@ xhr.open("GET", "http://localhost:8080/events/all", true);
 xhr.send();
 
 function display(data) {
-  const exculdeColumns = ["eventId", "user", "createdAt", "updatedAt"];
+  const exculdeColumns = [
+    "eventId",
+    "creator",
+    "createdAt",
+    "updatedAt",
+    "participants",
+  ];
   const contentArea = document.getElementById("contentArea");
   data.forEach((event) => {
     const eventCard = document.createElement("div");
@@ -42,7 +48,7 @@ function display(data) {
 
     const eventHost = document.createElement("span");
     eventHost.textContent =
-      "Hosted by:" + event.user.firstName + " " + event.user.lastName;
+      "Hosted by:" + event.creator.firstName + " " + event.creator.lastName;
     eventHost.classList.add("event-host");
     eventInfo.appendChild(eventHost);
 

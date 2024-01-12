@@ -23,7 +23,14 @@ xhttp.setRequestHeader("Authorization", "Bearer " + accessToken);
 xhttp.send();
 
 function display(data) {
-  const exculdeColumns = ["eventId", "user", "createdAt", "updatedAt"];
+  const exculdeColumns = [
+    "eventId",
+    "user",
+    "createdAt",
+    "updatedAt",
+    "creator",
+    "participants",
+  ];
   const contentArea = document.getElementById("contentArea");
   data.forEach((event) => {
     const eventCard = document.createElement("div");
@@ -56,7 +63,7 @@ function display(data) {
 
     const eventHost = document.createElement("span");
     eventHost.textContent =
-      "Hosted by:" + event.user.firstName + " " + event.user.lastName;
+      "Hosted by:" + event.creator.firstName + " " + event.creator.lastName;
     eventHost.classList.add("event-host");
     eventInfo.appendChild(eventHost);
 
@@ -129,7 +136,6 @@ function getAllEvents() {
 }
 
 var sidebar = document.getElementById("sidebar");
-
 document.getElementById("profileIcon").addEventListener("click", function () {
   if (sidebar.classList == "sidebar") {
     sidebar.classList.add("sidebar-collapsed");
@@ -138,6 +144,15 @@ document.getElementById("profileIcon").addEventListener("click", function () {
     sidebar.classList.remove("sidebar-collapsed");
   }
 });
+// document.addEventListener("click", function (e) {
+//   var target = e.target;
+//   var isSidebar = sidebar.contains(target);
+
+//   if (!isSidebar && sidebar.classList.contains("sidebar-collapsed")) {
+//     sidebar.classList.add("sidebar");
+//     sidebar.classList.remove("sidebar-collapsed");
+//   }
+// });
 
 function displayDetailsOnSidebar(userDetails) {
   var name = document.createElement("span");
@@ -175,3 +190,7 @@ function getCookie(name) {
 function expireCookie(name) {
   document.cookie = name + "= xyz; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 }
+
+document.getElementById("createEvent").addEventListener("click", function () {
+  window.location.href = "http://127.0.0.1:5501/HTML/createEvent.html";
+});
